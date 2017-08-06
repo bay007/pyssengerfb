@@ -80,3 +80,11 @@ class Message(object):
                 "quick_replies": elementos}}
         except Exception as error:
             logging.critical(error, exc_info=True)
+
+    @staticmethod
+    def sender_action(isON=False):
+        if not isinstance(isON, bool):
+            raise Exception("El valor debe ser de tipo boleano")
+        return {
+            "sender_action": "typing_on" if isON else "typing_off"
+        }
