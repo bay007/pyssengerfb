@@ -1,0 +1,3 @@
+
+class Template(object):
+    pass
