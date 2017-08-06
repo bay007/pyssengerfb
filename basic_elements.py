@@ -8,7 +8,7 @@ class Message(object):
         pass
 
     @staticmethod
-    def to_json(mensaje):
+    def text(mensaje):
         try:
 
             if not isinstance(mensaje, str):
@@ -16,11 +16,35 @@ class Message(object):
             mensaje = mensaje.strip()
 
             if mensaje.__len__() < 1:
-                raise Exception("La cadena no debe ser vacia")
+                raise Exception("El mensaje no debe ser vacio")
 
             return {
                 "message": {
                     "text": mensaje
+                }
+            }
+        except Exception as error:
+            logging.critical(error, exc_info=True)
+
+    @staticmethod
+    def image(url):
+        try:
+
+            if not isinstance(url, str):
+                raise Exception("la URL debe ser una cadena de texto")
+            url = url.strip()
+
+            if url.__len__() < 1:
+                raise Exception("La URL no debe ser vacia")
+
+            return {
+                "message": {
+                    "attachment": {
+                        "type": "image",
+                        "payload": {
+                            "url": url
+                        }
+                    }
                 }
             }
         except Exception as error:

@@ -61,8 +61,11 @@ class Page(object):
 
 
 """
-# Ejemplo para mandar un mensaje 
+# Ejemplo para mandar un mensaje
 page = Page(os.getenv("PAGE_ACCESS_TOKEN"))
-mensaje = Message.to_json("Hola Mundo")
-page.send("1757084327651562", mensaje)
+mensaje = Message.text("Hola Mundo")
+image = Message.image(
+    "https://lh3.googleusercontent.com/Yh6ZlCb8dQIDIwAWbwd2jboFCyTqq8wc2xbLMs9ykYemOX3vjOTtT6Npfbk-jFkCciwY=w300")
+#page.send("1757084327651562", mensaje)
+page.send("1757084327651561", image)
 """
