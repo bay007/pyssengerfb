@@ -1,6 +1,7 @@
 import requests
 import os
 from basic_elements import Message
+from templates import Template
 import logging
 import json
 FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'

@@ -88,3 +88,39 @@ class Message(object):
         return {
             "sender_action": "typing_on" if isON else "typing_off"
         }
+
+    @staticmethod
+    def button_web(url=None, title=None):
+        try:
+            if not isinstance(title, str) or len(title.strip()) == 0:
+                raise Exception(
+                    "El boton a mostrar debe ser una cadena no vacía")
+
+            if not isinstance(url, str) or len(url.strip()) == 0:
+                raise Exception(
+                    "LA URL debe ser una cadena no vacía")
+
+            return {
+                "type": "web_url",
+                "url": url.strip(),
+                "title": title.strip()
+            }
+
+        except Exception as error:
+            logging.critical(error, exc_info=True)
+
+    @staticmethod
+    def button_postback(title=None):
+        try:
+            if not isinstance(title, str) or len(title.strip()) == 0:
+                raise Exception(
+                    "El boton a mostrar debe ser una cadena no vacía")
+
+            return {
+                "type": "postback",
+                "title": title.strip(),
+                "payload": title.strip()
+            }
+
+        except Exception as error:
+            logging.critical(error, exc_info=True)
