@@ -57,6 +57,10 @@ class Message(object):
                 raise Exception(
                     "Los botones deben estar contenidos en una lista no vacia")
 
+            if len(titles) > 11:
+                raise Exception(
+                    "No se pueden mostrar mas de 11 botones a la vez de tipo quick reply")
+
             if not isinstance(mensaje, str):
                 raise Exception("El mensaje debe ser una cadena de texto")
             mensaje = mensaje.strip()

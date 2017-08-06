@@ -8,6 +8,9 @@ class Template(object):
             raise Exception(
                 "Los botones deben ser contenidos en una lista no vacia")
 
+        if len(buttons) > 3:
+            raise Exception("El numero de botones no puede exceder de 3")
+
         if not isinstance(title, str):
             raise Exception(
                 "El titulo de los botones debe ser una cadena de texto")
