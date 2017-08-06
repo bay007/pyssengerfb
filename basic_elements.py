@@ -128,3 +128,52 @@ class Message(object):
 
         except Exception as error:
             logging.critical(error, exc_info=True)
+
+    @staticmethod
+    def generic_template_element(title="", subtitle="", image_url="", url="", buttons=[]):
+
+        if not isinstance(title, str):
+            raise Exception("El titulo debe ser una cadena")
+        title = title.strip()
+        if 0 >= len(title) or len(title) >= 81:
+            raise Exception(
+                "El titulo debe tener entre 1 y 80 caracteres, hay {}".format(len(title)))
+
+        if not isinstance(subtitle, str):
+            raise Exception("El subtitle debe ser una cadena")
+        subtitle = subtitle.strip()
+        if 0 >= len(subtitle) or len(subtitle) >= 81:
+            raise Exception(
+                "El subtitle debe tener entre 1 y 80 caracteres, hay {}".format(len(subtitle)))
+
+        if not isinstance(image_url, str):
+            raise Exception("La image_url debe ser una cadena")
+        image_url = image_url.strip()
+        if len(image_url) == 0:
+            raise Exception("La image_url debe ser una cadena no vacia")
+
+        if not isinstance(url, str):
+            raise Exception("La url debe ser una cadena")
+        url = url.strip()
+
+        if not isinstance(buttons, list):
+            raise Exception("Los botones deben estar contenidos en una lista")
+
+        if 0 >= len(buttons) or len(buttons) >= 4:
+            raise Exception(
+                "La lista de botones puede tener solo de 1 a 3 elementos, hay {}".format(len(buttons)))
+
+        element = {
+            "title": title,
+            "subtitle": subtitle,
+            "image_url": image_url,
+            "buttons": buttons
+        }
+
+        if len(url) > 0:
+            element.update({"default_action": {
+                "type": "web_url",
+                "url": url,
+            }})
+
+        return element

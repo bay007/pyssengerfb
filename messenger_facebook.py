@@ -1,15 +1,8 @@
 import requests
-import os
-from basic_elements import Message
-from templates import Template
 import logging
-import json
 FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'
 logger = logging.basicConfig(level=logging.INFO, format=FORMAT)
 logger = logging.getLogger(__name__)
-
-
-API_VERSION = 2.6
 
 
 class Page(object):

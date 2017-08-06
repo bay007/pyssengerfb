@@ -37,3 +37,24 @@ class Template(object):
                 }
             }
         }
+
+    @staticmethod
+    def generic_template(elements=[]):
+        if not isinstance(elements, list):
+            raise Exception("Los elementos deben ser contenidos en una lista")
+
+        if 0 >= len(elements) or len(elements) >= 11:
+            raise Exception(
+                "Solo puede haber entre 1 y 10 elementos, hay {}".format(len(elements)))
+
+        return {
+            "message": {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": elements
+                    }
+                }
+            }
+        }
