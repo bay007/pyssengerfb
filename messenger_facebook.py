@@ -3,7 +3,8 @@ import os
 from basic_elements import Message
 import logging
 import json
-logging.basicConfig(level=logging.INFO)
+FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'
+logger = logging.basicConfig(level=logging.INFO, format=FORMAT)
 logger = logging.getLogger(__name__)
 
 
@@ -51,10 +52,12 @@ class Page(object):
             headers = {"Content-Type": "application/json"}
             response = requests.post(self.BASE_URL,
                                      data=data, headers=headers)
-            logger.info(response.text)
-            logger.info(response.status_code)
+
+            if response.status_code >= 400:
+                raise Exception(
+                    "Hubo un error", response.text)
         except Exception as error:
-            logging.critical(error, exc_info=True)
+            logger.critical(error, exc_info=True)
 
 
 """
