@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 class Template(object):
     @staticmethod
     def button_template(title=None, buttons=[]):

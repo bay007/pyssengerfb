@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # https://wiki.python.org/moin/PyUnit
 import unittest
 import pyssengerfb as p
