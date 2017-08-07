@@ -1,4 +1,4 @@
-![estado](https://travis-ci.org/bay007/pyssengerfb.svg?branch=master)
+[![Build Status](https://travis-ci.org/bay007/pyssengerfb.svg?branch=master)](https://travis-ci.org/bay007/pyssengerfb)
 # pyssengerfb
 pyssengerfb es una opción para manejar la API de Facebook Messenger en Python.
  - Envío de mensajes de [texto].
