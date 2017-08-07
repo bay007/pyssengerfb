@@ -64,7 +64,7 @@ page.send(sender_id=CLIENT_ID, mensaje=sender_Action)
 
 ```
 
-[rapida respuesta]:https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies
+[rápida respuesta]:https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies
 [imagenes]:https://developers.facebook.com/docs/messenger-platform/send-api-reference/image-attachment
 [texto]:https://developers.facebook.com/docs/messenger-platform/send-api-reference/text-message
 [escribiendo]:https://developers.facebook.com/docs/messenger-platform/send-api-reference/sender-actions
