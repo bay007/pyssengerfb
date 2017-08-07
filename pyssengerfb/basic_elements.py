@@ -8,7 +8,7 @@ class Message(object):
         pass
 
     @staticmethod
-    def text(mensaje):
+    def text(mensaje=None):
         try:
 
             if not isinstance(mensaje, str):
@@ -27,7 +27,7 @@ class Message(object):
             logging.critical(error, exc_info=True)
 
     @staticmethod
-    def image(url):
+    def image(url=None):
         try:
 
             if not isinstance(url, str):
@@ -87,11 +87,14 @@ class Message(object):
 
     @staticmethod
     def sender_action(isON=False):
-        if not isinstance(isON, bool):
-            raise Exception("El valor debe ser de tipo boleano")
-        return {
-            "sender_action": "typing_on" if isON else "typing_off"
-        }
+        try:
+            if not isinstance(isON, bool):
+                raise Exception("El valor debe ser de tipo boleano")
+            return {
+                "sender_action": "typing_on" if isON else "typing_off"
+            }
+        except Exception as error:
+            logging.critical(error, exc_info=True)
 
     @staticmethod
     def button_web(url=None, title=None):
